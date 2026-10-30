@@ -1,0 +1,6 @@
+mcoins.db
+*.db
+*.sqlite
+*.sqlite3
+__pycache__/
+.env

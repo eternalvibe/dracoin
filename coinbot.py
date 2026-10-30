@@ -4,6 +4,7 @@ import random
 import sqlite3
 from datetime import datetime, timedelta
 import os
+from dotenv import load_dotenv
 
 from aiogram import Bot, Dispatcher, F, Router
 from aiogram.filters import BaseFilter, Command
@@ -17,9 +18,16 @@ from aiogram.types import (
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
+
+load_dotenv()
+
 # ==================== НАСТРОЙКИ ====================
 
-BOT_TOKEN = "8802517848:AAHosYet7Yf1llgmzFb4kyqqfeHBUVmuce4"
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+if not BOT_TOKEN:
+    raise ValueError("Токен BOT_TOKEN не найден в .env файле!")
+
+# BOT_TOKEN = "8802517848:AAHosYet7Yf1llgmzFb4kyqqfeHBUVmuce4"
 TARGET_CHAT_ID = -1002614929006
 ADMIN_IDS = {1955476231, 8025502507, 8595107331}
 
